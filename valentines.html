@@ -25,7 +25,8 @@
     ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
 
      esriConfig.apiKey = "AAPKaac2cf2edcae4af19e382017224435a2THx7ZaP0-AcwX4FBIzkQ3cReZJljZ3BH0C5K_nqbi52q-3yht3HzjGybKs0vfACB";
-
+     esriConfig.portalUrl = "https://fleming.maps.arcgis.com/"
+      
       const webmap = new WebMap({
         portalItem: {
           id: "b3f4722d509e414696d9cce84580fc01"
@@ -33,10 +34,8 @@
       });
 
       const view = new MapView({
-        container: "viewDiv",
-
         map: webmap
-
+        container: "viewDiv",
       });
 
       const scalebar = new ScaleBar({
