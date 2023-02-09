@@ -35,15 +35,15 @@
     container: "viewDiv",
     map: map,
     center: [-100.771047,55.403827],
-    zoom: 3
+    zoom: 4
   });
 
 //Trailheads feature layer (points)
-  const trailheadsLayer = new FeatureLayer({
-    url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0"
+  const capitals = new FeatureLayer({
+    url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Captial_Cities_Across_Canada_Using_GeoJSON/FeatureServer/0"
   });
 
-  map.add(trailheadsLayer);
+  map.add(capitals);
 
 //Trails feature layer (lines)
   const trailsLayer = new FeatureLayer({
