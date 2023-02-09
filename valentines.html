@@ -37,24 +37,13 @@
     zoom: 3
   });
     
-  const fireRenderer = {
-        "type": "simple",
-        "symbol": {
-          "type": "picture-marker",
-          "url": "https://static.arcgis.com/images/Symbols/Firefly/FireflyC2.png",
-          "width": "40px",
-          "height": "40px"
-        }
-      }   
-    
   const capitals = new FeatureLayer({
     url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
-    renderer: fireRenderer,
+
   });
 
   map.add(capitals);
 
-// Parks and open spaces (polygons)
   const valentines = new FeatureLayer({
     url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Valentines/FeatureServer/0"
   });
