@@ -35,23 +35,22 @@
     container: "viewDiv",
     map: map,
     center: [-98.645959,60.031539],
-    zoom: 4
+    zoom: 3
   });
     
   const trailheadsRenderer = {
         "type": "simple",
         "symbol": {
           "type": "picture-marker",
-          "url": "https://static.arcgis.com/images/Symbols/Firefly/FireflyC2.png",
+          "url": "http://static.arcgis.com/images/Symbols/NPS/npsPictograph_0231b.png",
           "width": "18px",
           "height": "18px"
         }
       }   
     
-//Trailheads feature layer (points)
   const capitals = new FeatureLayer({
-    url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Captial_Cities_Across_Canada_Using_GeoJSON/FeatureServer/0"
-    renderer: trailheadsRenderer
+    url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
+    renderer: trailheadsRenderer,
   });
 
   map.add(capitals);
