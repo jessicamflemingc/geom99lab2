@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
+    <title>Happy Valentines Day</title>
 
     <style>
       html,
@@ -18,17 +18,22 @@
    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
    <script src="https://js.arcgis.com/4.25/"></script>
    <script>
-      require(["esri/config", "esri/Map", "esri/views/MapView"], function(esriConfig, Map, MapView) {
+      require(["esri/config", 
+               "esri/Map", 
+               "esri/views/MapView"
+               "esri/Graphic",
+               "esri/layers/GraphicsLayer"
+              ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
 
         esriConfig.apiKey = "AAPKaac2cf2edcae4af19e382017224435a2THx7ZaP0-AcwX4FBIzkQ3cReZJljZ3BH0C5K_nqbi52q-3yht3HzjGybKs0vfACB";
 
         const map = new Map({
-          basemap: "arcgis-topographic" // Basemap layer service
+          basemap: "arcgis-dark-gray" // Basemap layer service
         });
         
         const view = new MapView({
           map: map,
-          center: [-118.805, 34.027], // Longitude, latitude
+          center: [48.856283, 2.296169], // Longitude, latitude
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
