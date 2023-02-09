@@ -28,7 +28,7 @@
   esriConfig.apiKey = "AAPKaac2cf2edcae4af19e382017224435a2THx7ZaP0-AcwX4FBIzkQ3cReZJljZ3BH0C5K_nqbi52q-3yht3HzjGybKs0vfACB";
 
   const map = new Map({
-    basemap: "arcgis-topographic"
+    basemap: "arcgis-dark-gray"
   });
 
   const view = new MapView({
@@ -37,7 +37,15 @@
     center: [-98.645959,60.031539],
     zoom: 4
   });
+    
 
+var symbol = {
+  type: "picture-marker",  // autocasts as new PictureMarkerSymbol()
+  url: "https://static.arcgis.com/images/Symbols/Firefly/FireflyC2.png",
+  width: "64px",
+  height: "64px"
+};    
+    
 //Trailheads feature layer (points)
   const capitals = new FeatureLayer({
     url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Captial_Cities_Across_Canada_Using_GeoJSON/FeatureServer/0"
