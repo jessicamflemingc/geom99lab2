@@ -1,59 +1,59 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a map</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS Maps SDK for JavaScript Tutorials: Display a Web Map</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.25/"></script>
 
-    <style>
-      html,
-      body,
-      #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
-    </style>
+  <script>
+    require([
+      "esri/config",
+      "esri/WebMap",
+      "esri/views/MapView",
+      "esri/widgets/ScaleBar",
+      "esri/widgets/Legend"
+    ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
 
-    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
-    <script src="https://js.arcgis.com/4.25/"></script>
+    esriConfig.apiKey = "b3f4722d509e414696d9cce84580fc01";
 
-    <script>
-      require(["esri/config", 
-               "esri/WebMap", 
-               "esri/views/MapView",
-               "esri/widgets/ScaleBar",
-               "esri/widgets/Legend"
-              ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
-
-        esriConfig.apiKey = "AAPKaac2cf2edcae4af19e382017224435a2THx7ZaP0-AcwX4FBIzkQ3cReZJljZ3BH0C5K_nqbi52q-3yht3HzjGybKs0vfACB";
-
-        const webmap = new WebMap({
+      const webmap = new WebMap({
         portalItem: {
           id: "b3f4722d509e414696d9cce84580fc01"
         }
       });
 
-        const view = new MapView({
-          map: Webmap,
-          container: "viewDiv" // Div element
-        });
-        
-        const scalebar = new ScaleBar({
+      const view = new MapView({
+        container: "viewDiv",
+
+        map: webmap
+
+      });
+
+      const scalebar = new ScaleBar({
         view: view
       });
 
       view.ui.add(scalebar, "bottom-left");
-        
-      const legend = new Legend ({
+
+    const legend = new Legend ({
         view: view
       });
       view.ui.add(legend, "top-right");
-      });
-    </script>
 
-  </head>
-  <body>
-    <div id="viewDiv"></div>
-  </body>
+  });
+  </script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+</body>
 </html>
