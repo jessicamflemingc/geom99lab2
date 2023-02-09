@@ -20,10 +20,9 @@
     "esri/config",
     "esri/Map",
     "esri/views/MapView",
-    "PictureMarkerSymbol"
     "esri/layers/FeatureLayer"
 
-  ], function(esriConfig,Map, MapView, PictureMarkerSymbol, FeatureLayer) {
+  ], function(esriConfig, Map, MapView, FeatureLayer) {
 
   esriConfig.apiKey = "AAPKaac2cf2edcae4af19e382017224435a2THx7ZaP0-AcwX4FBIzkQ3cReZJljZ3BH0C5K_nqbi52q-3yht3HzjGybKs0vfACB";
 
@@ -38,11 +37,11 @@
     zoom: 3
   });
     
-  const trailheadsRenderer = {
+  const fireRenderer = {
         "type": "simple",
         "symbol": {
           "type": "picture-marker",
-          "url": "http://static.arcgis.com/images/Symbols/NPS/npsPictograph_0231b.png",
+          "url": "https://static.arcgis.com/images/Symbols/Firefly/FireflyC2.png",
           "width": "18px",
           "height": "18px"
         }
@@ -50,17 +49,10 @@
     
   const capitals = new FeatureLayer({
     url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
-    renderer: trailheadsRenderer,
+    renderer: fireRenderer,
   });
 
   map.add(capitals);
-
-//Trails feature layer (lines)
-  const trailsLayer = new FeatureLayer({
-    url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0"
-  });
-
-  map.add(trailsLayer, 0);
 
 // Parks and open spaces (polygons)
   const valentines = new FeatureLayer({
