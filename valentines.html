@@ -20,45 +20,35 @@
 
     <script>
       require(["esri/config", 
-               "esri/Map", 
+               "esri/WebMap", 
                "esri/views/MapView",
-               "esri/Graphic",
-               "esri/layers/GraphicsLayer"
-              ], function(esriConfig, Map, MapView, Graphic, GraphicsLayer) {
+               "esri/widgets/ScaleBar",
+               "esri/widgets/Legend"
+              ], function(esriConfig, WebMap, MapView, ScaleBar, Legend) {
 
         esriConfig.apiKey = "AAPKaac2cf2edcae4af19e382017224435a2THx7ZaP0-AcwX4FBIzkQ3cReZJljZ3BH0C5K_nqbi52q-3yht3HzjGybKs0vfACB";
 
-        const map = new Map({
-          basemap: "arcgis-dark-gray" // Basemap layer service
-        });
+        const webmap = new WebMap({
+        portalItem: {
+          id: "b3f4722d509e414696d9cce84580fc01"
+        }
+      });
 
         const view = new MapView({
-          map: map,
-          center: [2.294694, 48.858093], // Longitude, latitude
-          zoom: 13, // Zoom level
+          map: Webmap,
           container: "viewDiv" // Div element
         });
-        const graphicsLayer = new GraphicsLayer();
-        map.add(graphicsLayer);
         
-        const point = { //Create a point
-          type: "point",
-          longitude: 2.294694,
-          latitude: 48.858093
-        };
-        const simpleMarkerSymbol = {
-          type: "simple-marker",
-          color: [226, 119, 40],  // Orange
-          outline: {
-            color: [255, 255, 255], // White
-            width: 1
-          }
-      };
-        const pointGraphic = new Graphic({
-    geometry: point,
-    symbol: simpleMarkerSymbol
- });
- graphicsLayer.add(pointGraphic);
+        const scalebar = new ScaleBar({
+        view: view
+      });
+
+      view.ui.add(scalebar, "bottom-left");
+        
+      const legend = new Legend ({
+        view: view
+      });
+      view.ui.add(legend, "top-right");
       });
     </script>
 
