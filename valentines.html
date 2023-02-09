@@ -35,7 +35,7 @@
     container: "viewDiv",
     map: map,
     center: [-100.771047,55.403827],
-    zoom: 5
+    zoom: 3
   });
 
 //Trailheads feature layer (points)
@@ -53,11 +53,11 @@
   map.add(trailsLayer, 0);
 
 // Parks and open spaces (polygons)
-  const parksLayer = new FeatureLayer({
+  const valentines = new FeatureLayer({
     url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Valentines/FeatureServer/0"
   });
 
-  map.add(parksLayer, 0);
+  map.add(valentines, 0);
 
   });
 </script>
